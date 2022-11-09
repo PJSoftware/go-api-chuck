@@ -1,0 +1,10 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  chuck:
+    cmds:
+      - go build -o ./bin/chuck.exe ./cmd/chuck
+      - ./bin/chuck.exe
+    silent: true
