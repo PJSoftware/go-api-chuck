@@ -14,8 +14,8 @@ using `go-api` to communicate with the API.
 
 - [x] `/random` returns a random joke.
 - [x] `/categories` returns a list of available categories.
-- [ ] `/random?category={category}` returns a random joke from the named category.
-- [ ] `/search?query={query}` returns a list of jokes matching the query string.
+- [x] `/random?category={category}` returns a random joke from the named category.
+- [x] `/search?query={query}` returns a list of jokes matching the query string.
 
 ## cmd/chuck
 
@@ -31,3 +31,10 @@ Alternatively, if you have [task](https://taskfile.dev) installed, you can use:
 ```sh
 task chuck
 ```
+
+### Command Line Flags
+
+- `bin/chuck.exe` returns a random Chuck Norris joke.
+- `bin/chuck.exe -list` returns a list of available categories.
+- `bin/chuck.exe -cat xxx` returns a random joke from the "xxx" category.
+- `bin/chuck.exe -find xxx` lists all jokes containing the specified string "xxx".

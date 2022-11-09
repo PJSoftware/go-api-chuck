@@ -7,4 +7,10 @@ tasks:
     cmds:
       - go build -o ./bin/chuck.exe ./cmd/chuck
       - ./bin/chuck.exe
+      - ./bin/chuck.exe -list
+      - ./bin/chuck.exe -cat science
+      - ./bin/chuck.exe -find yoda
     silent: true
+  build:
+    cmds:
+      - go build -o ./bin/chuck.exe ./cmd/chuck
