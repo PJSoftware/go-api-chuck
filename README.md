@@ -8,6 +8,15 @@ requirements, and hence is a good starting point for the development of the
 This `go-api-chuck` package provides an interface for the `Chuck Norris API`,
 using `go-api` to communicate with the API.
 
+## Chuck Norris API
+
+### EndPoints
+
+- [x] `/random` returns a random joke.
+- [ ] `/categories` returns a list of available categories.
+- [ ] `/random?category={category}` returns a random joke from the named category.
+- [ ] `/search?query={query}` returns a list of jokes matching the query string.
+
 ## cmd/chuck
 
 The `chuck` command uses `go-api-chuck` to query the `Chuck Norris API`. You
