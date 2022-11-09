@@ -12,7 +12,7 @@ type Joke struct {
 
 func main() {
 	cn := chuck.New()
-	fmt.Println("Chuck [Auth0: No Authorisation]")
+	fmt.Println(cn.Ident())
 
 	cj := cn.RandomJoke()
 	fmt.Printf("\n%s\n\n", cj.Value)
@@ -23,4 +23,18 @@ func main() {
 
 	cl := cn.CategoryList()
 	fmt.Printf("\nCategories: %v\n", cl)
+
+	cc := cn.RandomByCategory("food")
+	fmt.Printf("\n%s\n\n", cc.Value)
+	fmt.Printf("- ID: \"%s\"\n", cc.ID)
+	if len(cc.Categories) > 0 {
+		fmt.Printf("- Categories (incl FOOD?): %v\n", cc.Categories)
+	}
+
+	cs := cn.SearchFor("food")
+	fmt.Printf("\nFound %d jokes containing 'food':\n", cs.Total)
+
+	for idx, joke := range cs.Result {
+		fmt.Printf("%02d: %s\n", idx+1, joke.Value)
+	} 
 }

@@ -1,6 +1,7 @@
 package chuck
 
 import (
+	"fmt"
 	"log"
 
 	goapi "github.com/pjsoftware/go-api"
@@ -16,12 +17,17 @@ type ChuckAPI struct {
 func New() *ChuckAPI {
 	chuck := &ChuckAPI{}
 	chuck.api = goapi.New("http://api.chucknorris.io/jokes")
+	chuck.api.SetName(fmt.Sprintf("Chuck API v%s", pkgVersion))
 
 	// initialise all endpoints
 	chuck.epRandom = chuck.api.NewEndpoint("/random")
 	chuck.epCategories = chuck.api.NewEndpoint("/categories")
 	chuck.epSearch = chuck.api.NewEndpoint("/search")
 	return chuck
+}
+
+func (c *ChuckAPI) Ident() string {
+	return c.api.Ident()
 }
 
 func chuckHatesErrors(err error) {
