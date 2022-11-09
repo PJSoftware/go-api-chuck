@@ -13,7 +13,7 @@ using `go-api` to communicate with the API.
 ### EndPoints
 
 - [x] `/random` returns a random joke.
-- [ ] `/categories` returns a list of available categories.
+- [x] `/categories` returns a list of available categories.
 - [ ] `/random?category={category}` returns a random joke from the named category.
 - [ ] `/search?query={query}` returns a list of jokes matching the query string.
 
