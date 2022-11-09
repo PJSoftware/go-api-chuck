@@ -6,7 +6,7 @@ import (
 
 // RandomJoke returns a random joke from the Chuck Norris API
 func (c *ChuckAPI) RandomJoke() *Joke {
-	res, err := c.api.Get("/random")
+	res, err := c.epRandom.NewRequest().GET()
 	chuckHatesErrors(err)
 
 	joke := &Joke{}
