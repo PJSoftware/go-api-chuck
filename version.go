@@ -1,7 +1,8 @@
 package chuck
 
-const pkgVersion = "0.9.2"
+const pkgVersion = "v1.0.0"
 
+// Version returns the current version of the go-api-chuck package
 func Version() string {
 	return pkgVersion
 }

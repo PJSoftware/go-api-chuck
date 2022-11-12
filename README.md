@@ -36,5 +36,5 @@ task chuck
 
 - `bin/chuck.exe` returns a random Chuck Norris joke.
 - `bin/chuck.exe -list` returns a list of available categories.
-- `bin/chuck.exe -cat xxx` returns a random joke from the "xxx" category.
-- `bin/chuck.exe -find xxx` lists all jokes containing the specified string "xxx".
+- `bin/chuck.exe -cat <cat>` returns a random joke from the specified category.
+- `bin/chuck.exe -find <str>` lists all jokes containing the specified string.

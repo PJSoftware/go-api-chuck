@@ -70,6 +70,12 @@ func searchFor(str string) {
 func searchCategory(cat string) {
 	fmt.Printf("Random joke in '%s' category:\n", cat)
 	cc := cnAPI.RandomByCategory(cat)
+	if cc == nil {
+		fmt.Printf("* Category '%s' does not exist\n", cat)
+		fmt.Printf("* See 'chuck -list' for more!\n")
+		return
+	}
+
 	fmt.Printf("\n%s\n", cc.Value)
 	fmt.Println("")
 }

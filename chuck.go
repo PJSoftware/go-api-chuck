@@ -14,6 +14,7 @@ type ChuckAPI struct {
 	epSearch 	    *goapi.Endpoint
 }
 
+// New initialises a new instance of the go-api-chuck object.
 func New() *ChuckAPI {
 	chuck := &ChuckAPI{}
 	chuck.api = goapi.New("http://api.chucknorris.io/jokes")
@@ -26,12 +27,14 @@ func New() *ChuckAPI {
 	return chuck
 }
 
+// Ident() is simply a pass-through for goapi.Ident()
 func (c *ChuckAPI) Ident() string {
 	return c.api.Ident()
 }
 
+// chuckHatesErrors is called to handle system errors
 func chuckHatesErrors(err error) {
 	if err != nil {
-		log.Fatalf("Error? Chuck Norris does not make errors. Therefore this must be your fault: %v", err)
+		log.Fatalf("Error? Chuck Norris does not make errors. Therefore this must be your fault:\n  %v", err)
 	}
 }
