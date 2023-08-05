@@ -8,7 +8,7 @@ import (
 // CategoryList returns a list of valid categories from the Chuck Norris API
 func (c *ChuckAPI) CategoryList() *JokeCategories {
 	res, err := c.epCategories.NewRequest().GET()
-	chuckHatesErrors(err)
+	chuckHatesErrors(res.Status, err)
 
 	catList := &JokeCategories{}
 	json.Unmarshal([]byte(res.Body), catList)

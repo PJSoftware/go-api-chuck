@@ -9,7 +9,7 @@ func (c *ChuckAPI) SearchFor(str string) *Jokes {
 	req := c.epSearch.NewRequest()
 	req.AddQuery("query", str)
 	res, err := req.GET()
-	chuckHatesErrors(err)
+	chuckHatesErrors(res.Status, err)
 
 	jokes := &Jokes{}
 	json.Unmarshal([]byte(res.Body), jokes)
