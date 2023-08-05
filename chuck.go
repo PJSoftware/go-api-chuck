@@ -3,6 +3,7 @@ package chuck
 import (
 	"fmt"
 	"log"
+	"net/http"
 
 	goapi "github.com/pjsoftware/go-api"
 )
@@ -18,7 +19,7 @@ type ChuckAPI struct {
 func New() *ChuckAPI {
 	chuck := &ChuckAPI{}
 	chuck.api = goapi.New("http://api.chucknorris.io/jokes")
-	chuck.api.SetName(fmt.Sprintf("Chuck API v%s", pkgVersion))
+	chuck.api.SetName(fmt.Sprintf("Chuck API %s", pkgVersion))
 
 	// initialise all endpoints
 	chuck.epRandom = chuck.api.NewEndpoint("/random")
@@ -33,7 +34,11 @@ func (c *ChuckAPI) Ident() string {
 }
 
 // chuckHatesErrors is called to handle system errors
-func chuckHatesErrors(err error) {
+func chuckHatesErrors(status int, err error) {
+	if status != http.StatusOK {
+		log.Fatalf("Unexpected non-OK status returned: %d", status)
+	}
+	
 	if err != nil {
 		log.Fatalf("Error? Chuck Norris does not make errors. Therefore this must be your fault:\n  %v", err)
 	}

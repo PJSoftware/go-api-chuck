@@ -13,10 +13,10 @@ func (c *ChuckAPI) RandomByCategory(cat string) *Joke {
 	req := c.epRandom.NewRequest()
 	req.AddQuery("category", cat)
 	res, err := req.GET()
-	chuckHatesErrors(err)
+	chuckHatesErrors(res.Status, err)
 
 	joke := &Joke{}
-	json.Unmarshal(res.Body, joke)
+	json.Unmarshal([]byte(res.Body), joke)
 
 	return joke
 }
