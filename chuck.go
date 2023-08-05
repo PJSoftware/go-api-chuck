@@ -18,7 +18,7 @@ type ChuckAPI struct {
 func New() *ChuckAPI {
 	chuck := &ChuckAPI{}
 	chuck.api = goapi.New("http://api.chucknorris.io/jokes")
-	chuck.api.SetName(fmt.Sprintf("Chuck API v%s", pkgVersion))
+	chuck.api.SetName(fmt.Sprintf("Chuck API %s", pkgVersion))
 
 	// initialise all endpoints
 	chuck.epRandom = chuck.api.NewEndpoint("/random")

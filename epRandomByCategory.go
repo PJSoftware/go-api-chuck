@@ -16,7 +16,7 @@ func (c *ChuckAPI) RandomByCategory(cat string) *Joke {
 	chuckHatesErrors(err)
 
 	joke := &Joke{}
-	json.Unmarshal(res.Body, joke)
+	json.Unmarshal([]byte(res.Body), joke)
 
 	return joke
 }

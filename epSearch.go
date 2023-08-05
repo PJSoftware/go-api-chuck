@@ -12,7 +12,7 @@ func (c *ChuckAPI) SearchFor(str string) *Jokes {
 	chuckHatesErrors(err)
 
 	jokes := &Jokes{}
-	json.Unmarshal(res.Body, jokes)
+	json.Unmarshal([]byte(res.Body), jokes)
 
 	return jokes
 }

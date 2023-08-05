@@ -10,7 +10,7 @@ func (c *ChuckAPI) RandomJoke() *Joke {
 	chuckHatesErrors(err)
 
 	joke := &Joke{}
-	json.Unmarshal(res.Body, joke)
+	json.Unmarshal([]byte(res.Body), joke)
 
 	return joke
 }

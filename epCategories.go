@@ -11,7 +11,7 @@ func (c *ChuckAPI) CategoryList() *JokeCategories {
 	chuckHatesErrors(err)
 
 	catList := &JokeCategories{}
-	json.Unmarshal(res.Body, catList)
+	json.Unmarshal([]byte(res.Body), catList)
 
 	return catList
 }
