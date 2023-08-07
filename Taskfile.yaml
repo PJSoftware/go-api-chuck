@@ -5,12 +5,17 @@ version: "3"
 tasks:
   chuck:
     cmds:
-      - go build -o ./bin/chuck.exe ./cmd/chuck
+      - task: build
       - ./bin/chuck.exe
       - ./bin/chuck.exe -list
       - ./bin/chuck.exe -cat science
       - ./bin/chuck.exe -find yoda
-    silent: true
+
   build:
+    sources:
+      - ./*.go
+      - ./cmd/chuck/*.go
+      - ./go.mod
+      - ./go.sum
     cmds:
       - go build -o ./bin/chuck.exe ./cmd/chuck
